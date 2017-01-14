@@ -1,0 +1,56 @@
+* aws-arn
+
+Parse AWS ARNs into useful information.
+
+AWS have [[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html][documented the structure of their ARNs]]. This simple library
+parses these known ARN structures into a map of ARN components.
+
+* Examples
+
+Test cases provide the following examples:
+
+#+BEGIN_SRC clojure
+
+(require [aws-arn.core :refer [parse-arn]])
+
+(parse-arn "arn:aws:iam::123456789012:user/David")
+
+;; IAM is a global service, no region in ARN
+#_{:partition "aws",
+   :service "iam",
+   :region nil,
+   :account-id "123456789012",
+   :resource-type "user",
+   :resource "David"}
+
+;; Parse an Elastic Beanstalk ARN
+(parse-arn "arn:aws:elasticbeanstalk:us-east-1:123456789012:environment/My App/MyEnvironment")
+
+#_{:partition "aws",
+   :service "elasticbeanstalk",
+   :region "us-east-1",
+   :account-id "123456789012",
+   :resource-type "environment",
+   :resource "My App"}
+
+;; Parse an RDS ARN
+(parse-arn "arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
+
+#_{:partition "aws",
+ :service "rds",
+ :region "eu-west-1",
+ :account-id "123456789012",
+ :resource-type "db",
+ :resource "mysql-db"}
+
+;; Parse an S3 ARN
+(parse-arn "arn:aws:s3:::my_corporate_bucket/exampleobject.png")
+
+#_{:partition "aws",
+   :service "s3",
+   :region nil,
+   :account-id nil,
+   :resource-type "my_corporate_bucket",
+   :resource "exampleobject.png"}
+
+#+END_SRC
