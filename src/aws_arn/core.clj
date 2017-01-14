@@ -25,7 +25,7 @@
       (merge
        {:partition partition
         :service service
-        :region (if (= "" region) nil region)
+        :region region
         :account-id account-id
         :resource-type nil
         :resource nil}
