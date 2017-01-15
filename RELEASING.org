@@ -1,0 +1,28 @@
+* Releasing
+
+** Release Repository
+
+Clojars
+
+** Snapshots
+
+Branching will build and create a new release artifact as branchname-SNAPSHOT
+
+** Releases
+
+Candidate releases should exist on a new branch with an open pull request into master.
+
+If:
+- the PR merge build is successful
+- any release testing is successful
+Then a new release may be created.
+
+Create a release by tagging the PR commit. This is easily done in the
+Github UI, The tag action will trigger a new build. This build will
+create an artifact based on the tag version.
+
+For example: tagging 0.1.0 on the head of feature/foo will produce a
+new artifact in Clojars as awn-arn 0.1.0.
+
+When released, merge the pull request into master ready for subsequent
+development work.
