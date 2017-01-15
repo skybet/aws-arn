@@ -1,6 +1,10 @@
 * aws-arn
 
+[[https://travis-ci.org/skybet/aws-arn.svg?branch%3Dmaster][https://travis-ci.org/skybet/aws-arn.svg?branch=master]]
+
 Parse AWS ARNs into useful information.
+
+[[https://clojars.org/aws-arn][https://clojars.org/aws-arn/latest-version.svg]]
 
 AWS have [[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html][documented the structure of their ARNs]]. This simple library
 parses these known ARN structures into a map of ARN components.
