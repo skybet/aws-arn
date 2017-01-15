@@ -3,7 +3,7 @@
 
 (defn- resource-parts->type-and-resource [resource-or-type nil-or-resource]
   (if (nil? nil-or-resource)
-    (let [[type resource] (string/split resource-or-type #"/")]
+    (let [[type resource] (string/split resource-or-type #"/" 2)]
       (if resource
         {:resource-type type :resource resource}
         {:resource-type nil :resource resource-or-type}))
