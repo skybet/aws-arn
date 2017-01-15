@@ -1,6 +1,7 @@
 * aws-arn
 
-[[https://travis-ci.org/skybet/aws-arn.svg?branch%3Dmaster][https://travis-ci.org/skybet/aws-arn.svg?branch=master]] [[https://clojars.org/aws-arn][https://clojars.org/aws-arn/latest-version.svg]]
+[[https://travis-ci.org/skybet/aws-arn.svg?branch%3Dmaster][https://travis-ci.org/skybet/aws-arn.svg?branch=master]]
+ [[https://clojars.org/aws-arn][https://clojars.org/aws-arn/latest-version.svg]]
 
 Parse AWS ARNs into useful information.
 
