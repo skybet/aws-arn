@@ -12,7 +12,6 @@
                               :username :env/clojars_username
                               :password :env/clojars_password
                               :sign-releases false}]]
-  :dependencies [[org.clojure/clojure "1.8.0"]]
   :plugins [[lein-license "0.1.6"]
             [lein-ancient "0.6.10"]
             [lein-kibit "0.1.2" :exclusions [org.clojure/clojure
@@ -29,4 +28,5 @@
                   ["bikeshed" "-m" "120"]
                   ["ancient"]
                   ["cloverage"]]}
-  :profiles {:dev {}})
+  :profiles {:dev {}
+             :provided {:dependencies [[org.clojure/clojure "1.8.0"]]}})
