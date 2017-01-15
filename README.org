@@ -4,7 +4,7 @@
 
 Parse AWS ARNs into useful information.
 
-[[https://clojars.org/aws-arn][https://clojars.org/aws-arn/latest-version.svg]]
+Get the latest version [[https://clojars.org/aws-arn][https://clojars.org/aws-arn/latest-version.svg]]
 
 AWS have [[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html][documented the structure of their ARNs]]. This simple library
 parses these known ARN structures into a map of ARN components.
