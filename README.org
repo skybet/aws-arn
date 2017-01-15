@@ -5,17 +5,30 @@ Parse AWS ARNs into useful information.
 AWS have [[http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html][documented the structure of their ARNs]]. This simple library
 parses these known ARN structures into a map of ARN components.
 
+* Why?
+
+ARN parsing is useful with provisioning tools, because ARNs encode all
+the information necessary to refer to an AWS resource.
+
+As an example, provisioning a Lambda function that puts items into a
+DynamoDB table requires that you know:
+ - the table ARN, to grant permissions
+ - the table region and name, to construct the put item API calls
+
+You could pass all three separately as parameters into your
+provisioning solution, or you can just pass the ARN and have you
+Lambda function parse it to obtain the table name and region.
+
 * Examples
 
-Test cases provide the following examples:
+AWS documentation is the source for these examples.
 
 #+BEGIN_SRC clojure
 
 (require [aws-arn.core :refer [parse-arn]])
 
-(parse-arn "arn:aws:iam::123456789012:user/David")
-
 ;; IAM is a global service, no region in ARN
+(parse-arn "arn:aws:iam::123456789012:user/David")
 #_{:partition "aws",
    :service "iam",
    :region nil,
@@ -23,19 +36,17 @@ Test cases provide the following examples:
    :resource-type "user",
    :resource "David"}
 
-;; Parse an Elastic Beanstalk ARN
+;; Elastic Beanstalk ARN, note the forward slash in the resource
 (parse-arn "arn:aws:elasticbeanstalk:us-east-1:123456789012:environment/My App/MyEnvironment")
-
 #_{:partition "aws",
    :service "elasticbeanstalk",
    :region "us-east-1",
    :account-id "123456789012",
    :resource-type "environment",
-   :resource "My App"}
+   :resource "My App/MyEnvironment"}
 
 ;; Parse an RDS ARN
 (parse-arn "arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
-
 #_{:partition "aws",
  :service "rds",
  :region "eu-west-1",
@@ -43,9 +54,8 @@ Test cases provide the following examples:
  :resource-type "db",
  :resource "mysql-db"}
 
-;; Parse an S3 ARN
+;; Parse an S3 ARN, no region or account
 (parse-arn "arn:aws:s3:::my_corporate_bucket/exampleobject.png")
-
 #_{:partition "aws",
    :service "s3",
    :region nil,
