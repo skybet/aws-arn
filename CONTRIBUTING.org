@@ -1,0 +1,9 @@
+* Contributing
+
+** Contributing Issues
+
+If there's anything you want fixed, just raise an issue.
+
+** Contributing Code
+
+Use the standard Github Fork/PR method to create pull requests.
