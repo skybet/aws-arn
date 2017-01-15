@@ -1,4 +1,5 @@
 (ns aws-arn.core
+  "ARN handling support"
   (:require [clojure.string :as string]))
 
 (defn- resource-parts->type-and-resource [resource-or-type nil-or-resource]
