@@ -19,6 +19,11 @@ You could pass all three separately as parameters into your
 provisioning solution, or you can just pass the ARN and have you
 Lambda function parse it to obtain the table name and region.
 
+* Usage Notes
+
+- passing nil as the ARN returns nil
+- all keys will be present in the output map, missing values will be represented by nil
+
 * Examples
 
 AWS documentation is the source for these examples.
