@@ -1,0 +1,12 @@
+{:paths ["src" "resources"]
+ :deps
+ {org.clojure/clojure {:mvn/version "1.8.0"}}
+
+ :mvn/repos
+ {"maven-central" {:url "https://repo.maven.apache.org/maven2"}
+  "clojars.org"   {:url "https://repo.clojars.org"}}
+
+ :aliases
+ {:uberjar
+  {:extra-deps {luchiniatwork/cambada {:mvn/version "1.0.0"}}
+   :main-opts ["-m" "cambada.uberjar" "--aot" "all"]}}}

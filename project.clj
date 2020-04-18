@@ -1,6 +1,6 @@
-(defproject aws-arn (or (System/getenv "PROJECT_VERSION") "0.0.0-SNAPSHOT")
+(defproject Mcblumpreson/aws-arn (or (System/getenv "PROJECT_VERSION") "0.0.0-SNAPSHOT")
   :description "Parse useful information from AWS ARNs"
-  :url "http://github.com/skybet/aws-arn"
+  :url "http://github.com/Mcblumperson/aws-arn"
   :license {:name "MIT License"
             :url "https://opensource.org/licenses/MIT"
             :year 2017
