@@ -69,3 +69,21 @@
 
 (deftest nil-arn-returns-nil
   (is (nil? (arn/parse-arn nil))))
+
+(deftest dynamo-db-parsing
+  (is (= {:partition "aws"
+          :service "dynamodb"
+          :region "us-east-1"
+          :account-id "123456789012"
+          :resource-type "table"
+          :resource "MyTable"} 
+         (arn/parse-arn "arn:aws:dynamodb:us-east-1:123456789012:table/MyTable"))))
+
+(deftest dynamo-streams-parsing
+  (is (= {:partition "aws"
+          :service "dynamodb"
+          :region "us-east-1"
+          :account-id "123456789012"
+          :resource-type "table"
+          :resource "testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000"}
+         (arn/parse-arn "arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000"))))
